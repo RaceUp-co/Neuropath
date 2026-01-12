@@ -44,4 +44,46 @@ Déployez comme SaaS avec API pour intégration Figma/WordPress.
 
 Avantages pour Entreprises
 Améliore conversions en rendant sites moins manipulateurs mais plus persuasifs psychologiquement. Réduit temps design via audits rapides (comme VisualEyes pour attention). Différencie votre agence en offrant audits "neuro-optimisés", avec ROI mesurable via A/B tests post-corrections.
-​
+
+## Installation et Démarrage
+
+Voir [INSTALL.md](INSTALL.md) pour les instructions détaillées d'installation.
+
+### Installation rapide
+
+```bash
+# Installer les dépendances
+pip install -r requirements.txt
+
+# Configurer les variables d'environnement
+cp .env.example .env
+# Éditer .env et ajouter votre OPENAI_API_KEY (optionnel)
+
+# Démarrer le serveur
+python run.py
+```
+
+### Utilisation
+
+1. **Interface Web**: Ouvrir `frontend/index.html` dans votre navigateur
+2. **API**: Le serveur API sera accessible sur `http://localhost:8000`
+3. **Documentation API**: Visiter `http://localhost:8000/docs`
+
+## Architecture
+
+- **Scraping** (`src/scraper/`): Extraction du contenu web (HTML, CSS, texte)
+- **Analyse** (`src/analyzer/`): Détection des biais psychologiques (pattern matching + IA)
+- **Rapports** (`src/reports/`): Génération de rapports détaillés
+- **API** (`src/api/`): API REST FastAPI
+- **Base de données** (`src/database/`): 35+ biais psychologiques avec exemples UX
+
+## Fonctionnalités
+
+- ✅ Scraping web (BeautifulSoup + Selenium)
+- ✅ Base de données de 35+ biais psychologiques
+- ✅ Analyse automatique (pattern matching)
+- ✅ Analyse IA (OpenAI GPT-4, optionnel)
+- ✅ Génération de rapports (JSON + HTML)
+- ✅ Interface de chat pour questions
+- ✅ API REST complète
+- ✅ Interface web moderne
