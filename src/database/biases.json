@@ -1,0 +1,846 @@
+{
+  "biases": [
+    {
+      "id": "anchoring",
+      "name": "Ancrage",
+      "description": "Tendance à s'appuyer trop lourdement sur la première information rencontrée lors de la prise de décision",
+      "ux_examples": [
+        "Prix initial élevé avant remise",
+        "Premier élément de menu mis en avant",
+        "Valeur de référence affichée avant le prix réel"
+      ],
+      "detection_patterns": [
+        "Prix barré à côté du prix actuel",
+        "Comparaisons avec prix précédents",
+        "Éléments de comparaison avec alternatives"
+      ],
+      "impact": "high",
+      "category": "pricing",
+      "recommendations": [
+        "Utiliser des ancres crédibles et justifiées",
+        "Ne pas manipuler avec des prix artificiellement élevés",
+        "Mettre en contexte les comparaisons"
+      ]
+    },
+    {
+      "id": "social_proof",
+      "name": "Preuve sociale",
+      "description": "Tendance à adopter le comportement d'autres personnes dans des situations d'incertitude",
+      "ux_examples": [
+        "Témoignages clients",
+        "Nombre d'utilisateurs actifs",
+        "Avis et notations",
+        "Badges 'Populaire' ou 'Bestseller'"
+      ],
+      "detection_patterns": [
+        "Témoignages utilisateurs",
+        "Compteurs de personnes actives",
+        "Avis et étoiles",
+        "Indicateurs de popularité"
+      ],
+      "impact": "high",
+      "category": "trust",
+      "recommendations": [
+        "Utiliser des témoignages authentiques",
+        "Afficher des métriques réelles et vérifiables",
+        "Diversifier les preuves sociales"
+      ]
+    },
+    {
+      "id": "choice_overload",
+      "name": "Surcharge de choix / Paradoxe du choix",
+      "description": "Trop d'options causent de l'anxiété et paralysent la prise de décision",
+      "ux_examples": [
+        "Menu de navigation avec trop d'options",
+        "Pages produit avec 50+ variantes",
+        "Formulaires avec trop de champs",
+        "Listes déroulantes trop longues"
+      ],
+      "detection_patterns": [
+        "Plus de 7-9 options principales",
+        "Menu avec plus de 10 éléments",
+        "Options multiples sans catégorisation",
+        "Formulaires très longs"
+      ],
+      "impact": "high",
+      "category": "navigation",
+      "recommendations": [
+        "Limiter à 5-7 options principales",
+        "Catégoriser les choix",
+        "Ajouter des filtres et recherche",
+        "Proposer des recommandations"
+      ]
+    },
+    {
+      "id": "halo_effect",
+      "name": "Effet halo",
+      "description": "Impression générale positive d'un élément influence la perception d'autres aspects",
+      "ux_examples": [
+        "Design visuel premium influençant la confiance",
+        "Logo de marque prestigieuse",
+        "Qualité visuelle générale du site",
+        "Première impression positive"
+      ],
+      "detection_patterns": [
+        "Design haut de gamme",
+        "Présence de logos de marques connues",
+        "Qualité des images et animations",
+        "Professionnalisme global"
+      ],
+      "impact": "medium",
+      "category": "perception",
+      "recommendations": [
+        "Maintenir une qualité visuelle cohérente",
+        "Ne pas surcompter sur le design seul",
+        "Valider que le design reflète la qualité réelle"
+      ]
+    },
+    {
+      "id": "confirmation_bias",
+      "name": "Biais de confirmation",
+      "description": "Tendance à favoriser les informations confirmant ses croyances préexistantes",
+      "ux_examples": [
+        "Contenu qui renforce les croyances existantes",
+        "Filtres par défaut qui confirment préférences",
+        "Suggestions basées sur l'historique",
+        "Echo chambers dans les recommandations"
+      ],
+      "detection_patterns": [
+        "Contenu très orienté vers un public spécifique",
+        "Absence de perspectives alternatives",
+        "Recommandations fermées",
+        "Pas d'options pour explorer au-delà"
+      ],
+      "impact": "medium",
+      "category": "content",
+      "recommendations": [
+        "Proposer des perspectives variées",
+        "Permettre l'exploration au-delà des préférences",
+        "Éviter les bulles de filtres"
+      ]
+    },
+    {
+      "id": "loss_aversion",
+      "name": "Aversion à la perte",
+      "description": "Les pertes pèsent plus lourdement que les gains équivalents",
+      "ux_examples": [
+        "Offres limitées dans le temps",
+        "Stocks limités affichés",
+        "Couleurs d'urgence (rouge/orange)",
+        "Messages 'Ne ratez pas cette opportunité'",
+        "Countdown timers"
+      ],
+      "detection_patterns": [
+        "Compteurs de temps",
+        "Indicateurs de stock limité",
+        "Couleurs d'urgence",
+        "Langage de rareté",
+        "Messages de FOMO"
+      ],
+      "impact": "high",
+      "category": "urgency",
+      "recommendations": [
+        "Utiliser avec authenticité (vraies limites)",
+        "Ne pas manipuler avec des fausses urgences",
+        "Équilibrer avec des bénéfices positifs"
+      ]
+    },
+    {
+      "id": "framing_effect",
+      "name": "Effet de cadrage",
+      "description": "La manière dont une information est présentée influence les décisions",
+      "ux_examples": [
+        "Présentation positive vs négative",
+        "Emphase sur les gains vs pertes",
+        "Formulation des CTAs",
+        "Comparaisons de caractéristiques"
+      ],
+      "detection_patterns": [
+        "Formulation positive des messages",
+        "Mise en avant de bénéfices vs coûts",
+        "Comparaisons orientées",
+        "Messages de CTAs spécifiques"
+      ],
+      "impact": "medium",
+      "category": "messaging",
+      "recommendations": [
+        "Tester différentes formulations",
+        "Utiliser des cadres éthiques",
+        "Présenter des informations équilibrées"
+      ]
+    },
+    {
+      "id": "reciprocity",
+      "name": "Réciprocité",
+      "description": "Tendance à rendre une faveur après en avoir reçu une",
+      "ux_examples": [
+        "Essais gratuits",
+        "Contenu gratuit de valeur",
+        "Cadeaux et bonus",
+        "Ressources téléchargeables gratuites"
+      ],
+      "detection_patterns": [
+        "Offres gratuites",
+        "Ressources téléchargeables",
+        "Essais sans engagement",
+        "Contenu éducatif gratuit"
+      ],
+      "impact": "high",
+      "category": "engagement",
+      "recommendations": [
+        "Offrir de la vraie valeur",
+        "Ne pas manipuler avec de fausses promesses",
+        "Créer un échange authentique"
+      ]
+    },
+    {
+      "id": "scarcity",
+      "name": "Rareté",
+      "description": "Les objets rares sont perçus comme plus précieux",
+      "ux_examples": [
+        "Stocks limités",
+        "Offres exclusives",
+        "Éditions limitées",
+        "Accès réservés"
+      ],
+      "detection_patterns": [
+        "Messages de stock limité",
+        "Badges d'exclusivité",
+        "Compteurs de disponibilité",
+        "Accès sur invitation"
+      ],
+      "impact": "high",
+      "category": "urgency",
+      "recommendations": [
+        "Utiliser uniquement pour de vraies limitations",
+        "Ne pas créer de fausse rareté",
+        "Communiquer clairement les limites"
+      ]
+    },
+    {
+      "id": "authority",
+      "name": "Autorité",
+      "description": "Tendance à suivre les conseils de figures d'autorité",
+      "ux_examples": [
+        "Badges de certification",
+        "Logos de partenaires prestigieux",
+        "Témoignages d'experts",
+        "Médias mentionnant le produit"
+      ],
+      "detection_patterns": [
+        "Certifications et badges",
+        "Logos de médias",
+        "Témoignages d'experts",
+        "Reconnaissances et prix"
+      ],
+      "impact": "medium",
+      "category": "trust",
+      "recommendations": [
+        "Utiliser des autorités légitimes",
+        "Ne pas surjouer les affiliations",
+        "Valider les certifications"
+      ]
+    },
+    {
+      "id": "commitment_consistency",
+      "name": "Engagement et cohérence",
+      "description": "Tendance à agir de manière cohérente avec ses engagements précédents",
+      "ux_examples": [
+        "Cartes de souhait/souhaits",
+        "Formulaires progressifs",
+        "Préférences sauvegardées",
+        "Historique d'actions"
+      ],
+      "detection_patterns": [
+        "Formulaires multi-étapes",
+        "Sauvegarde de préférences",
+        "Historique d'interactions",
+        "Profils utilisateurs"
+      ],
+      "impact": "medium",
+      "category": "engagement",
+      "recommendations": [
+        "Faciliter la cohérence authentique",
+        "Ne pas forcer des engagements",
+        "Respecter les choix utilisateurs"
+      ]
+    },
+    {
+      "id": "default_bias",
+      "name": "Biais par défaut",
+      "description": "Tendance à accepter les options par défaut",
+      "ux_examples": [
+        "Cases cochées par défaut",
+        "Options pré-sélectionnées",
+        "Paramètres par défaut",
+        "Abonnements inclus par défaut"
+      ],
+      "detection_patterns": [
+        "Cases à cocher pré-cochées",
+        "Options pré-sélectionnées",
+        "Paramètres par défaut actifs",
+        "Opt-out plutôt qu'opt-in"
+      ],
+      "impact": "high",
+      "category": "ethics",
+      "recommendations": [
+        "Éviter les options cachées",
+        "Privilégier opt-in pour les données sensibles",
+        "Rendre les choix explicites"
+      ]
+    },
+    {
+      "id": "endowment_effect",
+      "name": "Effet d'endowment",
+      "description": "Attribution d'une valeur plus élevée aux objets possédés",
+      "ux_examples": [
+        "Essais gratuits prolongés",
+        "Personnalisation des produits",
+        "Historique et favoris",
+        "Possession virtuelle"
+      ],
+      "detection_patterns": [
+        "Périodes d'essai longues",
+        "Fonctionnalités de personnalisation",
+        "Systèmes de favoris",
+        "Possession virtuelle"
+      ],
+      "impact": "medium",
+      "category": "engagement",
+      "recommendations": [
+        "Offrir de vraies valeurs d'essai",
+        "Faciliter la personnalisation",
+        "Respecter la propriété utilisateur"
+      ]
+    },
+    {
+      "id": "primacy_recency",
+      "name": "Effets de primauté et récence",
+      "description": "Tendance à mieux se souvenir du premier et dernier élément d'une liste",
+      "ux_examples": [
+        "Placement stratégique des éléments",
+        "Ordre des options de menu",
+        "Position des CTAs",
+        "Hiérarchie visuelle"
+      ],
+      "detection_patterns": [
+        "Placement des éléments importants",
+        "Ordre des options",
+        "Position des CTAs principaux",
+        "Hiérarchie de navigation"
+      ],
+      "impact": "medium",
+      "category": "navigation",
+      "recommendations": [
+        "Placer les éléments clés en début et fin",
+        "Optimiser l'ordre logique",
+        "Tester différentes dispositions"
+      ]
+    },
+    {
+      "id": "progressive_disclosure",
+      "name": "Divulgation progressive",
+      "description": "Technique de présentation de l'information par étapes",
+      "ux_examples": [
+        "Formulaires multi-étapes",
+        "Accordéons et onglets",
+        "Détails sur demande",
+        "Progressive disclosure UI"
+      ],
+      "detection_patterns": [
+        "Formulaires étagés",
+        "Éléments repliables",
+        "Informations cachées",
+        "Interfaces modulaires"
+      ],
+      "impact": "low",
+      "category": "navigation",
+      "recommendations": [
+        "Utiliser pour réduire la complexité",
+        "Maintenir la clarté",
+        "Ne pas cacher d'informations critiques"
+      ]
+    },
+    {
+      "id": "cognitive_load",
+      "name": "Charge cognitive",
+      "description": "Quantité d'effort mental nécessaire pour traiter l'information",
+      "ux_examples": [
+        "Interfaces surchargées",
+        "Trop d'informations simultanées",
+        "Complexité visuelle excessive",
+        "Absence de hiérarchie claire"
+      ],
+      "detection_patterns": [
+        "Beaucoup d'éléments visuels",
+        "Textes denses",
+        "Couleurs multiples",
+        "Absence de blancs"
+      ],
+      "impact": "high",
+      "category": "design",
+      "recommendations": [
+        "Simplifier l'interface",
+        "Utiliser l'espace blanc",
+        "Créer une hiérarchie claire",
+        "Réduire les distractions"
+      ]
+    },
+    {
+      "id": "chunking",
+      "name": "Regroupement / Chunking",
+      "description": "Organisation de l'information en groupes logiques",
+      "ux_examples": [
+        "Groupement d'éléments similaires",
+        "Catégories de produits",
+        "Sections de contenu",
+        "Groupes de champs de formulaire"
+      ],
+      "detection_patterns": [
+        "Catégorisation du contenu",
+        "Groupement visuel",
+        "Sections organisées",
+        "Regroupements logiques"
+      ],
+      "impact": "medium",
+      "category": "design",
+      "recommendations": [
+        "Grouper les informations liées",
+        "Utiliser des catégories claires",
+        "Maintenir la cohérence"
+      ]
+    },
+    {
+      "id": "color_psychology",
+      "name": "Psychologie des couleurs",
+      "description": "Impact émotionnel et comportemental des couleurs",
+      "ux_examples": [
+        "Couleurs pour les CTAs",
+        "Palettes de couleurs émotionnelles",
+        "Couleurs d'urgence",
+        "Associations culturelles de couleurs"
+      ],
+      "detection_patterns": [
+        "Couleurs dominantes",
+        "Couleurs des CTAs",
+        "Palettes utilisées",
+        "Contraste et accessibilité"
+      ],
+      "impact": "medium",
+      "category": "design",
+      "recommendations": [
+        "Choisir des couleurs appropriées au contexte",
+        "Respecter les associations culturelles",
+        "Maintenir l'accessibilité"
+      ]
+    },
+    {
+      "id": "font_psychology",
+      "name": "Psychologie des polices",
+      "description": "Impact de la typographie sur la perception",
+      "ux_examples": [
+        "Choix de polices",
+        "Taille et hiérarchie typographique",
+        "Lisibilité",
+        "Style et personnalité"
+      ],
+      "detection_patterns": [
+        "Familles de polices",
+        "Tailles de texte",
+        "Hiérarchie typographique",
+        "Espacement et lisibilité"
+      ],
+      "impact": "low",
+      "category": "design",
+      "recommendations": [
+        "Prioriser la lisibilité",
+        "Maintenir la cohérence",
+        "Utiliser la hiérarchie efficacement"
+      ]
+    },
+    {
+      "id": "fomo",
+      "name": "FOMO (Fear of Missing Out)",
+      "description": "Anxiété de manquer une expérience ou opportunité",
+      "ux_examples": [
+        "Messages de rareté",
+        "Compteurs de temps",
+        "Activité en temps réel",
+        "Notifications push"
+      ],
+      "detection_patterns": [
+        "Messages d'urgence",
+        "Compteurs",
+        "Indicateurs d'activité",
+        "Notifications"
+      ],
+      "impact": "high",
+      "category": "urgency",
+      "recommendations": [
+        "Utiliser authentiquement",
+        "Ne pas manipuler",
+        "Respecter le bien-être utilisateur"
+      ]
+    },
+    {
+      "id": "anchoring_price",
+      "name": "Ancrage de prix",
+      "description": "Utilisation d'un prix de référence pour influencer la perception",
+      "ux_examples": [
+        "Prix barré à côté du prix actuel",
+        "Comparaisons avec concurrents",
+        "Prix suggéré vs prix réel",
+        "Plages de prix"
+      ],
+      "detection_patterns": [
+        "Prix barrés",
+        "Comparaisons de prix",
+        "Prix de référence",
+        "Plages de prix affichées"
+      ],
+      "impact": "high",
+      "category": "pricing",
+      "recommendations": [
+        "Utiliser des références justes",
+        "Ne pas manipuler",
+        "Transparence dans les comparaisons"
+      ]
+    },
+    {
+      "id": "decoy_effect",
+      "name": "Effet leurre",
+      "description": "Ajout d'une option pour influencer le choix vers une autre option",
+      "ux_examples": [
+        "Options de tarification avec option décoy",
+        "Comparaisons de produits orientées",
+        "Options 'goldilocks' (milieu)",
+        "Plans tarifaires stratégiques"
+      ],
+      "detection_patterns": [
+        "3 options de tarification",
+        "Option clairement moins attractive",
+        "Mise en avant d'une option spécifique",
+        "Comparaisons orientées"
+      ],
+      "impact": "medium",
+      "category": "pricing",
+      "recommendations": [
+        "Offrir de vraies alternatives",
+        "Éviter la manipulation",
+        "Transparence dans les options"
+      ]
+    },
+    {
+      "id": "bandwagon_effect",
+      "name": "Effet de bandwagon",
+      "description": "Tendance à adopter un comportement parce que d'autres le font",
+      "ux_examples": [
+        "Nombreux utilisateurs actifs",
+        "Tendances populaires",
+        "Produits bestsellers",
+        "Messages 'Rejoignez des milliers'"
+      ],
+      "detection_patterns": [
+        "Compteurs d'utilisateurs",
+        "Badges de popularité",
+        "Listes de tendances",
+        "Messages de masse"
+      ],
+      "impact": "medium",
+      "category": "social",
+      "recommendations": [
+        "Utiliser des chiffres authentiques",
+        "Ne pas exagérer",
+        "Respecter la vérité"
+      ]
+    },
+    {
+      "id": "zero_cost_effect",
+      "name": "Effet du coût zéro",
+      "description": "Valeur perçue disproportionnée des choses gratuites",
+      "ux_examples": [
+        "Livraison gratuite",
+        "Essais gratuits",
+        "Bonus gratuits",
+        "Offres 'gratuit avec achat'"
+      ],
+      "detection_patterns": [
+        "Mots 'gratuit' ou 'free'",
+        "Offres sans coût",
+        "Bonus inclus",
+        "Essais sans engagement"
+      ],
+      "impact": "high",
+      "category": "pricing",
+      "recommendations": [
+        "Offrir de vraie valeur gratuite",
+        "Clarifier les conditions",
+        "Ne pas cacher les coûts"
+      ]
+    },
+    {
+      "id": "sunk_cost_fallacy",
+      "name": "Sophisme des coûts irrécupérables",
+      "description": "Continuer un comportement basé sur des investissements passés",
+      "ux_examples": [
+        "Essais qui deviennent payants",
+        "Investissements dans des profils",
+        "Historique d'achats",
+        "Points de fidélité"
+      ],
+      "detection_patterns": [
+        "Systèmes de points",
+        "Historique utilisateur",
+        "Investissements précédents",
+        "Essais convertis"
+      ],
+      "impact": "low",
+      "category": "engagement",
+      "recommendations": [
+        "Respecter les choix utilisateurs",
+        "Ne pas exploiter",
+        "Offrir de vraie valeur continue"
+      ]
+    },
+    {
+      "id": "contrast_effect",
+      "name": "Effet de contraste",
+      "description": "Perception influencée par la comparaison avec d'autres éléments",
+      "ux_examples": [
+        "Comparaisons de produits côte à côte",
+        "Avant/après",
+        "Comparaisons de prix",
+        "Contraste visuel"
+      ],
+      "detection_patterns": [
+        "Comparaisons visuelles",
+        "Éléments côte à côte",
+        "Avant/après",
+        "Contraste de design"
+      ],
+      "impact": "medium",
+      "category": "design",
+      "recommendations": [
+        "Utiliser des comparaisons équitables",
+        "Éviter la manipulation",
+        "Présenter clairement"
+      ]
+    },
+    {
+      "id": "goal_gradient_effect",
+      "name": "Effet de gradient d'objectif",
+      "description": "Accélération vers un objectif à mesure qu'on s'en rapproche",
+      "ux_examples": [
+        "Barres de progression",
+        "Points de fidélité",
+        "Complétion de profils",
+        "Objectifs de gamification"
+      ],
+      "detection_patterns": [
+        "Indicateurs de progression",
+        "Barres de complétion",
+        "Points et niveaux",
+        "Objectifs affichés"
+      ],
+      "impact": "medium",
+      "category": "engagement",
+      "recommendations": [
+        "Utiliser pour motiver positivement",
+        "Maintenir la transparence",
+        "Offrir de vraies récompenses"
+      ]
+    },
+    {
+      "id": "ikea_effect",
+      "name": "Effet IKEA",
+      "description": "Valeur accrue attribuée aux objets créés ou personnalisés soi-même",
+      "ux_examples": [
+        "Personnalisation de produits",
+        "Configuration d'interfaces",
+        "Création de contenus",
+        "Investissement personnel"
+      ],
+      "detection_patterns": [
+        "Outils de personnalisation",
+        "Configuration utilisateur",
+        "Création de contenus",
+        "Investissement personnel"
+      ],
+      "impact": "medium",
+      "category": "engagement",
+      "recommendations": [
+        "Offrir de vraies options de personnalisation",
+        "Faciliter la création",
+        "Valoriser les contributions"
+      ]
+    },
+    {
+      "id": "peak_end_rule",
+      "name": "Règle du pic et de la fin",
+      "description": "Évaluation basée sur les moments les plus intenses et la fin",
+      "ux_examples": [
+        "Expériences mémorables",
+        "Fin d'expérience positive",
+        "Moments clés de l'interface",
+        "Dernières impressions"
+      ],
+      "detection_patterns": [
+        "Moments d'interaction clés",
+        "Fin de parcours",
+        "Points culminants",
+        "Dernières étapes"
+      ],
+      "impact": "medium",
+      "category": "experience",
+      "recommendations": [
+        "Optimiser les moments clés",
+        "Terminer positivement",
+        "Créer des moments mémorables"
+      ]
+    },
+    {
+      "id": "prospect_theory",
+      "name": "Théorie des perspectives",
+      "description": "Décisions basées sur les gains et pertes perçus plutôt que sur les résultats finaux",
+      "ux_examples": [
+        "Présentation des bénéfices vs risques",
+        "Cadrage des choix",
+        "Mise en avant des gains",
+        "Minimisation des pertes perçues"
+      ],
+      "detection_patterns": [
+        "Cadrage des messages",
+        "Emphase sur gains/pertes",
+        "Présentation des risques",
+        "Formulation des bénéfices"
+      ],
+      "impact": "medium",
+      "category": "messaging",
+      "recommendations": [
+        "Présenter équilibrément",
+        "Utiliser des cadres éthiques",
+        "Respecter la transparence"
+      ]
+    },
+    {
+      "id": "attention_economy",
+      "name": "Économie de l'attention",
+      "description": "Conception visant à capturer et maintenir l'attention",
+      "ux_examples": [
+        "Éléments visuels accrocheurs",
+        "Animations et mouvements",
+        "Notifications",
+        "Design captivant"
+      ],
+      "detection_patterns": [
+        "Animations",
+        "Éléments visuels marquants",
+        "Notifications",
+        "Design attrayant"
+      ],
+      "impact": "medium",
+      "category": "design",
+      "recommendations": [
+        "Équilibrer engagement et bien-être",
+        "Éviter la surstimulation",
+        "Respecter l'attention utilisateur"
+      ]
+    },
+    {
+      "id": "dark_patterns",
+      "name": "Dark Patterns",
+      "description": "Interfaces conçues pour manipuler les utilisateurs",
+      "ux_examples": [
+        "Options cachées",
+        "Abonnements difficiles à annuler",
+        "Trick questions",
+        "Roach motel (facile d'entrer, difficile de sortir)"
+      ],
+      "detection_patterns": [
+        "Options difficiles à trouver",
+        "Interfaces trompeuses",
+        "Choix par défaut cachés",
+        "Annulation difficile"
+      ],
+      "impact": "high",
+      "category": "ethics",
+      "recommendations": [
+        "Éviter complètement",
+        "Privilégier la transparence",
+        "Respecter les choix utilisateurs"
+      ]
+    },
+    {
+      "id": "banner_blindness",
+      "name": "Cécité aux bannières",
+      "description": "Tendance à ignorer les éléments ressemblant à des publicités",
+      "ux_examples": [
+        "Bannières publicitaires",
+        "Éléments ressemblant à des pubs",
+        "Zones de pub typiques",
+        "Pop-ups"
+      ],
+      "detection_patterns": [
+        "Bannières",
+        "Éléments publicitaires",
+        "Pop-ups",
+        "Zones de pub"
+      ],
+      "impact": "low",
+      "category": "design",
+      "recommendations": [
+        "Intégrer le contenu naturellement",
+        "Éviter les zones typiques de pub",
+        "Valoriser le contenu authentique"
+      ]
+    },
+    {
+      "id": "mobile_first",
+      "name": "Mobile-first",
+      "description": "Priorité à l'expérience mobile",
+      "ux_examples": [
+        "Design responsive",
+        "Optimisation mobile",
+        "Touch-friendly",
+        "Performance mobile"
+      ],
+      "detection_patterns": [
+        "Responsive design",
+        "Tailles de touch targets",
+        "Optimisation mobile",
+        "Performance sur mobile"
+      ],
+      "impact": "high",
+      "category": "accessibility",
+      "recommendations": [
+        "Prioriser mobile",
+        "Tester sur appareils réels",
+        "Optimiser les performances"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "name": "Accessibilité",
+      "description": "Conception accessible à tous les utilisateurs",
+      "ux_examples": [
+        "Contraste de couleurs",
+        "Texte alternatif",
+        "Navigation clavier",
+        "ARIA labels"
+      ],
+      "detection_patterns": [
+        "Contraste WCAG",
+        "Alt text",
+        "Navigation clavier",
+        "Support lecteurs d'écran"
+      ],
+      "impact": "high",
+      "category": "accessibility",
+      "recommendations": [
+        "Respecter WCAG 2.1 AA",
+        "Tester avec outils",
+        "Inclure dans le design initial"
+      ]
+    }
+  ]
+}
